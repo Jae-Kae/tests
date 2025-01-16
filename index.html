@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Changer</title>
+    <style>
+      #changing-word {
+        color: #b95125;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      The web is <span id="changing-word">Stylist</span> and constantly
+      evolving.
+    </p>
+
+    <script>
+      // Words to cycle through
+      const words = [
+        "Stylist",
+        "Braider",
+        "Barber",
+        "Loctician",
+        "Curl Expert",
+        "Salon",
+        "Beauty Supply",
+        "Wig Specialist"
+
+
+      ];
+
+      const colors = [ "#b95125","#ea8053", "#733f07", "#bf6f19", "#bf6f19", "#6e7932", "#3d7eb8", "#5da8ea"];
+
+      let currentIndex = 0;
+
+      function changeWord() {
+        // Get the element containing the word
+        const wordElement = document.getElementById("changing-word");
+
+        // Update the text content with the next word
+        currentIndex = (currentIndex + 1) % words.length; // Loop back to the first word
+        wordElement.textContent = words[currentIndex];
+        wordElement.style.color = colors[currentIndex];
+        console.log(currentIndex)
+      }
+
+      // Call the changeWord function every 20 seconds
+      setInterval(changeWord, 2000);
+    </script>
+  </body>
+</html>
